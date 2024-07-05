@@ -1,0 +1,23 @@
+A. You are provided with the dataset diabetes.csv. Your task is to first inspect it to see if there is any need for preprocessing the data. Check whether there is any need for scaling, conversion of any feature from categorical to numerical, or filling in missing values in any of the columns. This last possibility may not be obvious.
+
+When you inspect the data, you may see that some zero entries do not make sense. For example, the thickness of a person's skin cannot be zero. Here is how you can solve this problem:
+
+1. Convert the invalid zeros to nulls. A null value will appear as NaN when viewed using pandas but it will be blank when viewed in Excel. The reason for doing this conversion is that NaNs can be filled quite easily using scikit learn.
+
+As an example, suppose you have a dataset named data that has ten columns (features). Two of these columns, column X and column Y contain zeros that don't make sense. To convert the zeros to nulls in just column X and column, you can do the following:
+
+import numpy as np
+cols = ['column X', 'column Y']
+data[cols] = data[cols].replace({0:np.nan})
+
+2. Convert the nulls into the mean or median value as we did with the California housing prices dataset.
+
+ 
+
+B. Once you have finished preprocessing the data, carry out k-fold cross-validation on the following two algorithms:
+KNN
+Decision tree
+
+C. Write down your observations and conclusions.
+
+D. Submit the notebook on ZDS
